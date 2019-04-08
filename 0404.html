@@ -19,14 +19,14 @@ doc[0]=["王醫生","薛醫生","羊醫生","陳醫生"];
 function docter()
 {
 	for(var i=0;i<doc[0].length;i++)
-		document.orderForm1.go.option[i]=new Option(doc[0][i],doc[0][i]);
-		document.orderForm1.go.length=doc[0].length;
+		document.form1.go.options[i]=new Option(doc[0][i],doc[0][i]);
+		document.form1.go.length=doc[0].length;
 }
 </script>
-<th bgcolor="white">就診醫生:
-<select name="go"  size=4>
+<th bgcolor="white">就診醫生:<br>
+<select name="go"  size=2>
 <option value="">
-</th>
+</th><br>
 <input id="Button3" type="button" value="LoadPatient"style="height: 35px; width: 100px" onclick="Button3_onclick() " />
 <input id="Button5" type="button" value="GetPatient "style="height: 35px; width: 100px" onclick="Button5_onclick() " />
 <input id="Button2" type="button" value="性別確認" style="height: 35px; width: 100px" onclick="Button2_onclick()" />
