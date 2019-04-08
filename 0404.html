@@ -6,14 +6,28 @@
 
  <a href="https://i3.wp.com/cyberuse.com/wp-content/uploads/2017/03/mental-status-exam-template-wfvnchte.png">精神科醫學心理狀態檢查表單來源 NENTAL STATUS EXAMINATION form</a>
 <h5 style="border:2px solid DodgerBlue;color:Tomato"><p align="center">NENTAL STATUS EXAMINATION</h5>
-
 </head>
 </form>
 <body ">
-    <form id="orderForm1" action="http://203.64.84.113/x/RQ_RS.aspx" method="post"  name="form1" >
-	<body background="http://www.shenqitao.com/uploads/allimg/160825/0ZJ92Y0-0.jpg" >
- <br>
- <input id="Button3" type="button" value="LoadPatient"style="height: 35px; width: 100px" onclick="Button3_onclick() " />
+<form id="orderForm1" action="http://203.64.84.113/x/RQ_RS.aspx" method="post"  name="form1" >
+<body background="http://www.shenqitao.com/uploads/allimg/160825/0ZJ92Y0-0.jpg" onload="docter()" > <br>
+	
+
+<script>
+doc=new Array();
+doc[0]=["王醫生","薛醫生","羊醫生","陳醫生"];
+function docter()
+{
+	for(var i=0;i<doc[0].length;i++)
+		document.orderForm1.go.option[i]=new Option(doc[0][i],doc[0][i]);
+		document.orderForm1.go.length=doc[0].length;
+}
+</script>
+<th bgcolor="white">就診醫生:
+<select name="go"  size=4>
+<option value="">
+</th>
+<input id="Button3" type="button" value="LoadPatient"style="height: 35px; width: 100px" onclick="Button3_onclick() " />
 <input id="Button5" type="button" value="GetPatient "style="height: 35px; width: 100px" onclick="Button5_onclick() " />
 <input id="Button2" type="button" value="性別確認" style="height: 35px; width: 100px" onclick="Button2_onclick()" />
 <input id="Button1" type="button" value="檢查格式"style="height: 35px; width: 100px" onclick="Button1_onclick() " />
