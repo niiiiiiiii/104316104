@@ -3,48 +3,41 @@
 <head>
  <meta charset="utf-8">
 <p style="background-color:#cccc00;font-family:courier;text-align:center;font-size:10%">~~104316104~~~NENTAL STATUS EXAMINATION~~</p>
-
- <a href="https://i3.wp.com/cyberuse.com/wp-content/uploads/2017/03/mental-status-exam-template-wfvnchte.png">精神科醫學心理狀態檢查表單來源 NENTAL STATUS EXAMINATION form</a>
+<a href="https://i3.wp.com/cyberuse.com/wp-content/uploads/2017/03/mental-status-exam-template-wfvnchte.png">精神科醫學心理狀態檢查表單來源 NENTAL STATUS EXAMINATION form</a>
 <h5 style="border:2px solid DodgerBlue;color:Tomato"><p align="center">NENTAL STATUS EXAMINATION</h5>
 </head>
 </form>
 <body ">
+
 <form id="orderForm1" action="http://203.64.84.113/x/RQ_RS.aspx" method="post"  name="form1" >
 <body background="http://www.shenqitao.com/uploads/allimg/160825/0ZJ92Y0-0.jpg" onload="docter()" > <br>
 	
-
-<script>
-doc=new Array();
-doc[0]=["王醫生","薛醫生","羊醫生","陳醫生"];
-function docter()
-{
-	for(var i=0;i<doc[0].length;i++)
-		document.form1.go.options[i]=new Option(doc[0][i],doc[0][i]);
-		document.form1.go.length=doc[0].length;
-}
-</script>
-<th bgcolor="white">就診醫生:<br>
+就診醫生:
 <select name="go"  size=2>
-<option value="">
-</th><br>
+<option value=""><br>
+
+
+
+<input id="Button1" type="button" value="檢查格式"style="height: 35px; width: 100px" onclick="Button1_onclick() " />
+<input id="Button2" type="button" value="性別確認" style="height: 35px; width: 100px" onclick="Button2_onclick()" />
 <input id="Button3" type="button" value="LoadPatient"style="height: 35px; width: 100px" onclick="Button3_onclick() " />
 <input id="Button5" type="button" value="GetPatient "style="height: 35px; width: 100px" onclick="Button5_onclick() " />
-<input id="Button2" type="button" value="性別確認" style="height: 35px; width: 100px" onclick="Button2_onclick()" />
-<input id="Button1" type="button" value="檢查格式"style="height: 35px; width: 100px" onclick="Button1_onclick() " />
 <button type="submit" value="sssss" style="height: 35px; width: 100px"; align="center" >送出資料</button>
-<input type="button" style="height: 35px; width: 100px" onclick="add_oo()" value="計算BMI"><br><br>
+<input type="button" style="height: 35px; width: 100px" onclick="add_oo()" value="計算BMI">
+
+<br><br>
 
 姓名:<input id="name" type="text" name="name" size="8" />      
 電話:<input id="TEL" type="text"  name="TEL" size="20">       
 身高:<input type="text" id="cm" size="8" onkeyup="numcheck(this.id,this)" />
 體重:<input type="text" id="kg" size="8" onkeyup="numcheck(this.id,this)" />
 <FONT size="3">
-<INPUT id="Radio1" type="radio" CHECKED value="male" name="Sex">男生&nbsp;
+<INPUT id="Radio1" type="radio" value="male" name="Sex">男生&nbsp;
 <INPUT id="Radio2" type="radio" value="female" name="Sex">女生&nbsp;</FONT>
 E-mail:<input id="email" type="email" name="email">
 <label for="bdaytime">出生：</label>
 <input type="date" id="bdaytime" placeholder="2019-04-01">
-<p style="color:red">本次病患就診狀況 &nbsp &nbsp 
+<p style="color:red">病患狀況 &nbsp &nbsp 
 <select size="1" name="ComicType">
             <option>normal</option>
             <option>hyperactive</option>
@@ -53,15 +46,25 @@ E-mail:<input id="email" type="email" name="email">
 			<option>psychomotor retardation</option>
             <option>pestless</option>
             </select></P>
-本次就診感受:
-<input type="checkbox" name="normal mood">normal mood
-	<input type="checkbox" name="dysphoric" >dysphoric
-	<input type="checkbox" name="irritable mood" >irritable
-	<input type="checkbox" name="happy mood" >happy 
-	<input type="checkbox" name="depression" >depression<br>
-
+本次感受:
+<input type="checkbox" name="fe" value="normal">normal
+<input type="checkbox" name="fe" value="dysphoric">dysphoric
+<input type="checkbox" name="fe" value="irritable">irritable
+<input type="checkbox" name="fe" value="happy">happy 
+<input type="checkbox" name="fe" value="depression" >depression<br>
+<input type="button" onclick="feeling()" style="height: 35px; width: 100px" value="Send.checkbox">
+<br><br>
+<table  style="width:100% ">
+  <tr>
+    <th>feeling----------------</th>
+   </tr>
+  <tr>
+	<td><input class="form-control" id="order" size="50" value="選擇本次感受在按鈕"></td>    
+   </tr>
+</table>
  <script language="javascript" type="text/javascript">//姓名電話必填
-        function Button1_onclick() {
+        function Button1_onclick() 
+{
             var a, b,c;	
             a = document.getElementById("name").value;
 			b = document.getElementById("TEL").value;
@@ -84,44 +87,82 @@ E-mail:<input id="email" type="email" name="email">
 			return true;
 			}
 			
-			}
+}
 </script>
-<script language="javascript">
-function numcheck(id,time){
- var re = /^[0-9]+$/;
- if (!re.test(time.value)){
-  alert("只能輸入數字");
-  document.getElementById(id).value="";
+<script language="javascript">//bmi只能輸入數字
+	function numcheck(id,time){
+		var re = /^[0-9]+$/;
+		if (!re.test(time.value)){
+		alert("只能輸入數字");
+		document.getElementById(id).value="";
  }
 }
 
 </script>
 <script>
-function add_oo()
+	function add_oo()//bmi計算
 {
-    var cm = document.getElementById('cm').value;
-	var kg = document.getElementById('kg').value;	
-    var bmi = 0;
-	bmi=kg/(cm*cm*0.0001);
-   alert('您的BMI為'+bmi)
+		var cm = document.getElementById('cm').value;
+		var kg = document.getElementById('kg').value;	
+		var bmi = 0;
+		bmi=kg/(cm*cm*0.0001);
+		alert('您的BMI為'+bmi)
    }
 </script>
 
 
 <script >
-        function Button3_onclick()
-		{
-			
-		   alert('name: '+'Chalmers'+'\nTEL: '+'12345678'+'\ngender: '+'male'+'\nbdaytime: '+'1996-04-01');
-		   var patient= {"name":"Chalmers", "TEL":"12345678", "gender": "male", "bdaytime": "1996-04-01"};
-    document.getElementById("name").value=patient.name;
-	document.getElementById("TEL").value=patient.TEL;
-	document.getElementById("gender").value=patient.gender;
-	document.getElementById("birtgDate").value=patient.bdaytime;
+     function Button3_onclick()//預設基本資料印出
+{
+		alert('name: '+'Chalmers'+'\nTEL: '+'12345678'+'\ngender: '+'male'+'\nbdaytime: '+'1996-04-01');
+		var patient= {"name":"Chalmers", "TEL":"12345678", "gender": "male", "bdaytime": "1996-04-01"};
+		document.getElementById("name").value=patient.name;
+		document.getElementById("TEL").value=patient.TEL;
+		document.getElementById("gender").value=patient.gender;
+		document.getElementById("birtgDate").value=patient.bdaytime;
+}
+ </script>
+ <script >
+    function Button5_onclick()//本次輸入資料的內容確認
+{
+		   alert('你的姓名:'+orderForm1.name.value+'\n電話號碼:(09/02)'+orderForm1.TEL.value+'\n信箱:'+orderForm1.email.value+'\n性別:'+orderForm1.Sex.value+
+				' / 出生:'+orderForm1.bdaytime.value);
+}
+</script>
+<script>//在開啟網頁時讓陣列資料印出印出再下拉表格
+doc=new Array();
+doc[0]=["王醫生","薛醫生","羊醫生","陳醫生"];
+function docter()
+{
+	for(var i=0;i<doc[0].length;i++)
+		document.form1.go.options[i]=new Option(doc[0][i],doc[0][i]);
+		document.form1.go.length=doc[0].length;
+}
+</script>
+<script >
+    function Button2_onclick()//radio button資料選擇確認
+{
+		 var rate_value;
+         if (document.getElementById('Radio1').checked) {  rate_value = document.getElementById('Radio1').value; }
+         if (document.getElementById('Radio2').checked) {  rate_value = document.getElementById('Radio2').value; }
+		 alert(rate_value);  
+}
+</script>
+<script >
+	function feeling()//checkbox 印出
+{
+	var fe = document.forms[0];
+	var txt = "";
+	var i;
+	for (i = 0; i < fe.length; i++) {
+    if (fe[i].checked) {
+      txt = txt + fe[i].value + " ";
+    }
+  }
+  document.getElementById("order").value = "You feeling is: " + txt;
+}
+</script >
 
-
-        }
-    </script>
 <style>
 table {
   font-family: arial, sans-serif;
@@ -139,14 +180,7 @@ tr:nth-child(even) {
   background-color: #fff2cc;
 }
 </style>
- <script >
-        function Button2_onclick() {
-		    var rate_value;
-            if (document.getElementById('Radio1').checked) {  rate_value = document.getElementById('Radio1').value; }
-            if (document.getElementById('Radio2').checked) {  rate_value = document.getElementById('Radio2').value; }
-			alert(rate_value);  
-        }
-    </script>
+
 </FONT></p>
 <p align="center"><BIG>ORIENTATION</BIG>
 <table>
@@ -232,20 +266,12 @@ tr:nth-child(even) {
     <th colspan="2">OTHER:<input type="text"   size="45"></th>
   </tr>
 </table>
-<script >
-
-        function Button5_onclick()
-		{
-		   alert('你的姓名:'+orderForm1.name.value+'\n電話號碼:(09/02)'+orderForm1.TEL.value+'\n信箱:'+orderForm1.email.value+'\n性別:'+orderForm1.Sex.value+
-				' / 出生:'+orderForm1.bdaytime.value);
-        }
-    </script>
 
 <p style="color:#556B2F">可上傳病患本次帶來分享的的詩詞文章或是句子、畫作
 <input type="file" name="myFile"><br> <br>
 
 <p style="background-color:#ccd9ff;font-family:courier;text-align:center;font-size:100%;color:blue">~~~~~~thanks!!!!!!!本資料表送出後，只會顯示個人資料確認~~~~~</p>
 
-        </form>
+</form>
  </body>
 </html>
